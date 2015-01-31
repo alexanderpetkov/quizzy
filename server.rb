@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/activerecord'
 
-require_relative 'models'
+Dir['models/*.rb'].each { |file| require_relative file }
 
 set :port, 1889
 set :bind, '0.0.0.0'

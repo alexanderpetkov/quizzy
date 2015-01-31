@@ -11,3 +11,5 @@ gem 'sinatra-activerecord'
 gem 'bcrypt'
 
 gem 'sqlite3'
+
+gem 'faker'
