@@ -6,7 +6,9 @@ namespace '/user' do
       session[:current_user] = user
       json(user)
     else
-      halt(400, { 'Content-Type' => 'application/json' }, 'Invalid username or password')
+      halt(400, { 'Content-Type' => 'application/json' },
+           'Invalid username or password'
+      )
     end
   end
 
@@ -16,9 +18,9 @@ namespace '/user' do
 
   post '/signup' do
     if params.values.include? ''
-      "Empty field"
+      'Empty field'
     elsif params[:password] != params[:password_repeat]
-      "Password difference"
+      'Password difference'
     else
       User.create(params.except('password_repeat'))
       redirect '/'

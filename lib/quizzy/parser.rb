@@ -6,7 +6,7 @@ module Quizzy
       file.close
 
       lines = full_text.split("\n").select { |line| line.size > 0 }
-      indices = lines.each_index.select { |i| lines[i][0] == '@'}
+      indices = lines.each_index.select { |i| lines[i][0] == '@' }
       indices << lines.length
 
       indices.each_cons(2) { |x, y| parse_question(lines[x...y]) }
@@ -20,7 +20,6 @@ module Quizzy
       categories = []
 
       category_names.each do |category_name|
-        category_name
         categories << Category.find_or_create_by(name: category_name.strip)
       end
 
@@ -31,7 +30,10 @@ module Quizzy
       answers_texts = question_md.select { |x| x[0] == '+' || x[0] == '-' }
       answers_texts.each do |answer_text|
         is_correct = answer_text.slice!(0) == '+'
-        question.answers << Answer.create(text: answer_text.strip, is_correct: is_correct)
+        question.answers << Answer.create(
+          text: answer_text.strip,
+          is_correct: is_correct
+        )
       end
 
       categories.each { |category| question.categories << category }

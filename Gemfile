@@ -13,3 +13,4 @@ gem 'bcrypt'
 gem 'sqlite3'
 
 gem 'faker'
+gem 'rubocop'
