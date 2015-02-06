@@ -1,12 +1,28 @@
 require 'faker'
 
+p 'creating non-admin users'
+
 5.times do
   User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    admin: false
   )
 end
+
+p 'creating admins'
+
+2.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    admin: true
+  )
+end
+
+p 'creating categories'
 
 categories = []
 
@@ -15,6 +31,8 @@ categories = []
     name: Faker::Lorem.word
   )
 end
+
+p 'creating questions and answers'
 
 10.times do
   question = Question.create(

@@ -24,4 +24,9 @@ namespace '/user' do
       redirect '/'
     end
   end
+
+  before { require_user_login }
+  get '/logout' do
+    session[:current_user] = nil
+  end
 end
