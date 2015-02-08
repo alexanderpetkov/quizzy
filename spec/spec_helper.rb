@@ -5,6 +5,8 @@ require 'rspec'
 require 'quizzy'
 require 'factories'
 
+ENV['RACK_ENV'] = 'test'
+
 RSpec.configure do |rspec_config|
   rspec_config.before(:suite) do
     ActiveRecord::Tasks::DatabaseTasks.db_dir = 'models'
