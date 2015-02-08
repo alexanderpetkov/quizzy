@@ -1,7 +1,9 @@
 require 'sinatra/activerecord'
+require 'factory_girl'
 require 'database_cleaner'
 require 'rspec'
 require 'quizzy'
+require 'factories'
 
 RSpec.configure do |rspec_config|
   rspec_config.before(:suite) do
@@ -22,6 +24,8 @@ RSpec.configure do |rspec_config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
+
+  ActiveRecord::Base.logger.level = 1
 
   rspec_config.around(:each) do |example|
     DatabaseCleaner.cleaning do
