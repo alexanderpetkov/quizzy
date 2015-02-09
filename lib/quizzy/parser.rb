@@ -5,7 +5,7 @@ module Quizzy
       full_text = file.read
       file.close
 
-      lines = full_text.split("\n").select { |line| line.size > 0 }
+      lines = full_text.split("\n").map(&:strip).select { |line| line.size > 0 }
       indices = lines.each_index.select { |i| lines[i][0] == '@' }
       indices << lines.length
 
