@@ -1,0 +1,5 @@
+chars:
+  category: '@'
+  question_text: '?'
+  correct_answer: '+'
+  incorrect_answer: '-'
