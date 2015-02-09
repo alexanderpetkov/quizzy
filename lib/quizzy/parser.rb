@@ -57,7 +57,7 @@ module Quizzy
     def self.classify_entry(entry, type)
       if type == 'answer'
         classify_entry(entry, 'correct_answer') ||
-        classify_entry(entry, 'incorrect_answer')
+          classify_entry(entry, 'incorrect_answer')
       else
         entry.chars.first == Quizzy::MARKDOWN_CHARS[type]
       end

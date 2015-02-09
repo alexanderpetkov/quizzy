@@ -8,7 +8,6 @@ require 'factories'
 
 require 'quizzy'
 
-
 RSpec.configure do |rspec_config|
   rspec_config.include FactoryGirl::Syntax::Methods
 
@@ -33,4 +32,3 @@ end
 Dir[File.dirname(__FILE__) + '/../models/*.rb'].each do |file|
   require_relative file
 end
-

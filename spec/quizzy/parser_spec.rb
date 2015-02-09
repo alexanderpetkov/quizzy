@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Quizzy::Parser do
   subject(:parser) { Quizzy::Parser }
 
-  let(:text) {
+  let(:text) do
     %W(
       @#{category}
       ?#{question_text}
@@ -12,9 +12,9 @@ describe Quizzy::Parser do
       -#{incorrect_answer2}
       -#{incorrect_answer3}
     )
-  }
+  end
 
-  let(:file_name) { 'temp_file' } 
+  let(:file_name) { 'temp_file' }
   let(:file) { File.new(file_name, 'w') }
 
   let(:created_category) { Category.find_by(name: category) }
@@ -32,7 +32,7 @@ describe Quizzy::Parser do
     File.delete(file)
   end
 
-  describe "parsing typical question" do
+  describe 'parsing typical question' do
     let(:category) { 'geography' }
     let(:question_text) { 'What is the capital of France?' }
     let(:correct_answer) { 'Paris' }
