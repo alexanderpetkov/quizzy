@@ -19,11 +19,20 @@ module Quizzy
       question_borders << lines.length
 
       question_borders.each_cons(2) do |left, right|
-        parse_question(lines[left...right])
+        fully_parse_question(lines[left...right])
       end
     end
 
-    def self.parse_question(question_md)
+    def self.fully_parse_question(question_md)
+      categories = parse_categories(question_md)
+      question   = parse_question(question_md)
+      answers    = parse_answers(question_md)
+
+      question.answers = answers
+      question.categories = categories
+    end
+
+    def self.parse_categories(question_md)
       category_section = select_only(question_md, 'category').first
       category_section.slice!(0)
       category_names = category_section.split(',')
@@ -34,20 +43,28 @@ module Quizzy
         categories << Category.find_or_create_by(name: category_name.strip)
       end
 
+      categories
+    end
+
+    def self.parse_question(question_md)
       question_text = select_only(question_md, 'question_text').first
       question_text.slice!(0)
-      question = Question.create(text: question_text.strip)
+      Question.create(text: question_text.strip)
+    end
+
+    def self.parse_answers(question_md)
+      answers = []
 
       answers_texts = select_only(question_md, 'answer')
       answers_texts.each do |answer_text|
         is_correct = classify_entry(answer_text.slice!(0), 'correct_answer')
-        question.answers << Answer.create(
+        answers << Answer.create(
           text: answer_text.strip,
           is_correct: is_correct
         )
       end
 
-      categories.each { |category| question.categories << category }
+      answers
     end
 
     def self.select_only(entries, type)
