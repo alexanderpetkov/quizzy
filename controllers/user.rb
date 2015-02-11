@@ -28,6 +28,7 @@ namespace '/user' do
   end
 
   before { require_user_login }
+
   get '/logout' do
     session[:current_user] = nil
   end

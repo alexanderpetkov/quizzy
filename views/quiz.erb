@@ -1,0 +1,13 @@
+<form action='/quiz/start'>
+  <% if !categories.blank? %>
+      <% for category in categories %>
+        <label>
+          <input type="checkbox" name=<%= category %>>
+          <%= category %><br>
+        </label>
+      <% end %>
+  <% else %>
+    <p>There are no questions yet.</p>
+  <% end %>
+  <button type='submit'>Take quiz</button>
+</form>

@@ -1,0 +1,17 @@
+<form action='/quiz/finish'>
+  <% if !questions.blank? %>
+    <% for question in questions %>
+      <p><%= question.text %></p>
+        <% for answer in question.answers %>
+          <label>
+            <input type="checkbox" name=<%= answer.id %>><%= answer.text %>
+          </label>
+        <% end %>
+    <% end %><br>
+
+    <button type='submit'> Finish </button>
+
+  <% else %>
+    <p>Sorry, there are no questions in these categories</p>
+  <% end %>
+</form>
