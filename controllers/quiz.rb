@@ -1,5 +1,8 @@
 namespace '/quiz' do
+
   get do
+    require_user_login
+
     erb :quiz, locals: {
       categories: Category.all.map(&:name)
     }

@@ -4,7 +4,7 @@ namespace '/user' do
 
     if user && user.authenticate(params[:password])
       session[:current_user] = user
-      json(user)
+      redirect '/quiz'
     else
       halt(400, { 'Content-Type' => 'application/json' },
            'Invalid username or password'
@@ -22,14 +22,16 @@ namespace '/user' do
     elsif params[:password] != params[:password_repeat]
       'Password difference'
     else
-      User.create(params.except('password_repeat'))
-      redirect '/'
+      user = User.create(params.except('password_repeat'))
+      session[:current_user] = user
+      redirect '/quiz'
     end
   end
 
-  before { require_user_login }
-
   get '/logout' do
+    require_user_login
+
     session[:current_user] = nil
+    redirect '/'
   end
 end

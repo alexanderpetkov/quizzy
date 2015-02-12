@@ -19,5 +19,5 @@ set :bind, '0.0.0.0'
 use Rack::Session::Cookie, key: 'rack.session', secret: 'change one day'
 
 get '/' do
-  erb :index
+  erb :home
 end

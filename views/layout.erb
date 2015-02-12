@@ -3,9 +3,15 @@
       <title>Quizzy</title>
     </head>
     <body>
-      <!-- На мястото на този yield ще се появава съдържанието на темплейта,
-           който е зададен за показване. Например, `views/users/all.erb`
-           ще бъде вмъкнат в този html и резултатът ще бъде пратен на браузъра. -->
+    <% if session[:current_user] %>
+      <p>Hi, <%= session[:current_user].name %></p>
+
+      <form action='/user/logout' method='GET'>
+        <button type='submit'>Log out</button>
+      </form>
+    <% else %>
+      <p>currently not logged in</p>
+    <% end %>
       <%= yield %>
     </body>
-  </html>
+</html>
