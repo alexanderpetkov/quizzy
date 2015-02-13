@@ -1,13 +1,20 @@
 namespace '/stats' do
-  get '/my' do
-    stats = User.find(session[:current_user].id).statistics
+  post '/my' do
+    user = User.find(session[:current_user].id)
+    category = params[:wanted_category]
+    stats = category ? user.statistics_by_category(category) : user.statistics
 
     textified_stats = stats.map do |answering|
-      result = answering.is_correct ? 'Answered correctly' : 'Mistaken'
+      result = answering.is_correct ? 'Correct' : 'Wrong'
 
-      Question.find(answering.question_id).text_representation + result
+      "#{result}.\n#{Question.find(answering.question_id).text_representation}"
     end
 
-    erb :stats, locals: { stats: textified_stats }
+    erb :stats, locals: {
+      is_checked: category,
+      stats: textified_stats,
+      categories: Category.all.map(&:name),
+      user_id: user.id
+    }
   end
 end

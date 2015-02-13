@@ -1,6 +1,26 @@
 <script src="//www.google.com/jsapi"></script>
 <script src="../chartkick.js"></script>
 
+<% if !categories.blank? %>
+  <form action='/stats/my' method='POST'>
+    <% for category in categories %>
+      <label>
+        <% if is_checked == category %>
+          <input type="radio" name='wanted_category' value=<%= category %> checked='checked' onchange='this.form.submit()'>
+        <% else %>
+          <input type="radio" name='wanted_category' value=<%= category %> onchange='this.form.submit()'>
+        <% end %>  
+        <%= category %><br>
+      </label>
+    <% end %>
+  </form>
+  <form action='/stats/my' method="POST">
+    <button type='submit'>All categories</button>
+  </form>
+<% else %>
+  <p>There are no questions added yet.</p>
+<% end %>
+
 <% if !stats.blank? %>
   <% for item in stats %>
     <%=item%><br>
@@ -8,8 +28,8 @@
 <% else %>
   <p>You haven't answered any questions yet. Wanna take a quick quiz?</p>
   <form action='/quiz' method="GET">
-  	<button type='submit'>Start a quiz</button>
+    <button type='submit'>Start a quiz</button>
   </form>
 <% end %>
 
-<%= pie_chart QuestionsUsers.group(:is_correct).count %>
+<%= pie_chart QuestionsUsers.where(user_id: user_id).group(:is_correct).count %>
