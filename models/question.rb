@@ -9,4 +9,10 @@ class Question < ActiveRecord::Base
   def correctly_answered?(given_answers_ids)
     answers.where(is_correct: true).map(&:id).sort == given_answers_ids.sort
   end
+
+  def text_representation
+    categories = self.categories.map(&:name).quizzy_print
+    answers    = self.answers.map(&:text).quizzy_print(multiline: true)
+    "#{text}, a question in #{categories} with answers:\n#{answers}"
+  end
 end

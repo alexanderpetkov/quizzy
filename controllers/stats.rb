@@ -1,5 +1,11 @@
 namespace '/stats' do
   get '/my' do
-    erb :stats, locals: { stats: User.find(session[:current_user].id).statistics.to_json }
+    stats = User.find(session[:current_user].id).statistics
+
+    textified_stats = stats.map do |answering|
+      Question.find(answering.question_id).text_representation
+    end
+
+    erb :stats, locals: { stats: textified_stats }
   end
 end

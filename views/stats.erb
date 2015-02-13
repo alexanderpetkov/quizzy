@@ -1,1 +1,10 @@
-<%= stats %>
+<% if !stats.blank? %>
+  <% for item in stats %>
+    <%=item%><br>
+  <% end %>
+<% else %>
+  <p>You haven't answered any questions yet. Wanna take a quick quiz?</p>
+  <form action='/quiz' method="GET">
+  	<button type='submit'>Start a quiz</button>
+  </form>
+<% end %>
