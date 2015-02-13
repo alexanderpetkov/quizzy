@@ -32,4 +32,8 @@
   </form>
 <% end %>
 
-<%= pie_chart QuestionsUsers.where(user_id: user_id).group(:is_correct).count %>
+<% if is_checked %>
+  <%= pie_chart chart_data %>
+<% else %>
+  <%= pie_chart QuestionsUsers.where(user_id: user_id).group(:is_correct).count %>
+<% end %>
