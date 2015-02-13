@@ -1,3 +1,6 @@
+<script src="//www.google.com/jsapi"></script>
+<script src="../chartkick.js"></script>
+
 <% if !stats.blank? %>
   <% for item in stats %>
     <%=item%><br>
@@ -8,3 +11,5 @@
   	<button type='submit'>Start a quiz</button>
   </form>
 <% end %>
+
+<%= pie_chart QuestionsUsers.group(:is_correct).count %>

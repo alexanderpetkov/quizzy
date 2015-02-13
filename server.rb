@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/activerecord'
 require 'sinatra/namespace'
+require 'chartkick'
 
 libdir = File.dirname(__FILE__) + '/lib'
 $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
