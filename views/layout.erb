@@ -5,7 +5,9 @@
     <body>
     <% if session[:current_user] %>
       <p>Hi, <%= session[:current_user].name %>!</p>
-
+      <form action='/stats/my' method='GET'>
+        <button type='submit'>My stats</button>
+      </form>
       <form action='/user/logout' method='GET'>
         <button type='submit'>Log out</button>
       </form>
