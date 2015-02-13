@@ -1,5 +1,4 @@
 namespace '/quiz' do
-
   get do
     require_user_login
 
