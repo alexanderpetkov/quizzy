@@ -7,7 +7,7 @@ namespace '/quiz' do
     }
   end
 
-  get '/start' do
+  post '/start' do
     erb :start, locals: {
       questions: Category.questions_by_categories(params.keys)
     }

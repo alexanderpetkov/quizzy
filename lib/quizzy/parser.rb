@@ -8,8 +8,6 @@ module Quizzy
       parse_markdown(full_text)
     end
 
-    private
-
     def self.parse_markdown(markdown_text)
       lines = markdown_text.split("\n").map(&:strip).reject(&:empty?)
 
@@ -22,6 +20,8 @@ module Quizzy
         fully_parse_question(lines[left...right])
       end
     end
+
+    private
 
     def self.fully_parse_question(question_md)
       categories = parse_categories(question_md)

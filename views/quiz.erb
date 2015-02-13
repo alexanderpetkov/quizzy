@@ -1,4 +1,4 @@
-<form action='/quiz/start'>
+<form action='/quiz/start' method='POST'>
   <% if !categories.blank? %>
       <% for category in categories %>
         <label>
@@ -7,10 +7,10 @@
         </label>
       <% end %>
   <% else %>
-    <p>There are no questions yet.</p>
+    <p>There are no questions yet.</p>aa
   <% end %>
   <button type='submit'>Take quiz</button>
 </form>
-<form action='/questions/add'>
+<form action='/questions/add' method='GET'>
   <button type='submit'>Add questions</button>
 </form>

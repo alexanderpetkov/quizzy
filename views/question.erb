@@ -1,1 +1,8 @@
-you are admin
+<form action='/questions/upload' method='POST' enctype='multipart/form-data'>
+  <input type='file' name='file'>
+  <button type'submit' value='Upload' <%if defined? disabled then "disabled=#{disabled}" end%>>Upload</button>
+</form>
+
+<% if defined? message %>
+  <p><%=message%></p>
+<% end %>
