@@ -10,8 +10,6 @@ namespace '/questions' do
            (name = params[:file][:filename])
       return erb :question, locals: { message: "No file selected." }
     end
-    # tmpfile = params[:file][:tempfile]
-    # name = params[:file][:filename]
 
     full_text = ''
 

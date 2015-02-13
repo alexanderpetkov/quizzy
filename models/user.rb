@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :questions
 
   has_secure_password
+
+  def statistics
+    QuestionsUsers.where(user_id: id)
+  end
 end
