@@ -13,6 +13,6 @@ class Question < ActiveRecord::Base
   def text_representation
     categories = self.categories.map(&:name).quizzy_print
     answers    = self.answers.map(&:text).quizzy_print(multiline: true)
-    "#{text}, a question in #{categories} with answers:\n#{answers}"
+    "#{text}, a question in #{categories} with answers:\n#{answers}.\n"
   end
 end
