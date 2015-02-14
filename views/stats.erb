@@ -1,5 +1,5 @@
 <script src="//www.google.com/jsapi"></script>
-<script src="../chartkick.js"></script>
+<script src="../js/chartkick.js"></script>
 
 <% if !categories.blank? %>
   <form action='/stats/my' method='POST'>
@@ -15,7 +15,7 @@
     <% end %>
   </form>
   <form action='/stats/my' method="POST">
-    <button type='submit'>All categories</button>
+    <button type='submit' class='btn btn-default'>All categories</button>
   </form>
 <% else %>
   <p>There are no questions added yet.</p>
@@ -28,7 +28,7 @@
 <% else %>
   <p>You haven't answered any questions yet. Wanna take a quick quiz?</p>
   <form action='/quiz' method="GET">
-    <button type='submit'>Start a quiz</button>
+    <button type='submit' class='btn btn-default'>Start a quiz</button>
   </form>
 <% end %>
 

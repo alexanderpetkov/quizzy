@@ -1,17 +1,19 @@
-<form action='/quiz/finish'>
   <% if !questions.blank? %>
-    <% for question in questions %>
-      <p><%= question.text %></p>
-        <% for answer in question.answers %>
-          <label>
-            <input type="checkbox" name=<%= answer.id %>><%= answer.text %>
-          </label>
-        <% end %>
-    <% end %><br>
+    <form action='/quiz/finish' class='questions-form'>
+      <% for question in questions %>
+        <div class='text'><%= question.text %></div>
+          <% for answer in question.answers %>
+            <label class='category'>
+              <input type="checkbox" name=<%= answer.id %>>
+              <%= answer.text %>
+            </label>
+          <% end %>
+          <div class='questions-delimiter'>=========================================</div>
+      <% end %><br>
 
-    <button type='submit'> Finish </button>
+      <button type='submit'> Finish </button>
+    </form>
 
   <% else %>
     <p>Sorry, there are no questions in these categories</p>
   <% end %>
-</form>

@@ -1,16 +1,22 @@
-<form action='/quiz/start' method='POST'>
-  <% if !categories.blank? %>
-      <% for category in categories %>
-        <label>
-          <input type="checkbox" name=<%= category %>>
-          <%= category %><br>
-        </label>
-      <% end %>
-  <% else %>
-    <p>There are no questions yet.</p>
-  <% end %>
-  <button type='submit'>Take quiz</button>
-</form>
-<form action='/questions/add' method='GET'>
-  <button type='submit'>Add questions</button>
-</form>
+<% if !categories.blank? %>
+  <div class='text'>
+    Please choose among the existing categories:
+  </div>
+  <form action='/quiz/start' method='POST' class='categories-form'>
+    <% for category in categories %>
+      <label class='category'>
+        <input type="checkbox" name=<%= category %>>
+        <%= category %><br>
+      </label>
+    <% end %>
+    <button type='submit' class='btn btn-default'>Take quiz</button>
+  </form>
+<% else %>
+  <p>There are no questions yet.</p>
+<% end %>
+
+<% if session[:current_user].admin %>
+  <form action='/questions/add' method='GET'>
+    <button type='submit' class='btn btn-default'>Add questions</button>
+  </form>
+<% end %>

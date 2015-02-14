@@ -1,19 +1,23 @@
 <html>
     <head>
       <title>Quizzy</title>
+      <link href="../css/bootstrap.min.css" rel="stylesheet">
+      <link href="../css/index.css" rel="stylesheet">
     </head>
     <body>
-    <% if session[:current_user] %>
-      <p>Hi, <%= session[:current_user].name %>!</p>
-      <form action='/stats/my' method='POST'>
-        <button type='submit'>My stats</button>
-      </form>
-      <form action='/user/logout' method='GET'>
-        <button type='submit'>Log out</button>
-      </form>
-    <% else %>
-      <p>currently not logged in</p>
-    <% end %>
+      <div class='top-bar'>
+        <% if session[:current_user] %>
+          <div>Hi, <%= session[:current_user].name %>!</div>
+          <form action='/stats/my' method='POST'>
+            <button type='submit' class='btn btn-default'>My stats</button>
+          </form>
+          <form action='/user/logout' method='GET' class='logout'>
+            <button type='submit' class='btn btn-default'>Log out</button>
+          </form>
+        <% else %>
+          <p>currently not logged in</p>
+        <% end %>
+      </div>
       <%= yield %>
     </body>
 </html>

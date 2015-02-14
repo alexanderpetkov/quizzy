@@ -1,0 +1,130 @@
+html {
+    margin:40px 80px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+label {
+    width: 100%;
+}
+
+h1 {
+    float: left;
+}
+
+form {
+    width: 300px;
+}
+
+.questions-delimiter {
+    padding: 25px 0px;
+}
+
+.text {
+    padding-bottom: 10px;
+    font-size: 120%;
+}
+
+.questions-form {
+    width: 600px;
+}
+
+.register {
+    width: 250px;
+    float: left;
+}
+
+.upload-button {
+    margin-top: 10px;
+}
+
+.login-area {
+    float: right;
+    width: 240px;
+}
+
+.top-bar {
+    float: right;
+}
+
+.categories-form {
+    width: 200px;
+}
+
+.category {
+    text-transform: capitalize;
+    font-weight: normal;
+    font-size: 115%;
+}
+
+.login input {
+    float: left;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    border-radius: 4px;
+    padding:6px 12px;
+    font-size: 14px;
+    vertical-align: middle;
+    width: auto;
+}
+
+.login button {
+    float:left;
+    width:80px;
+    height:30px;
+    display: inline-block;
+    padding: 3px 8px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    }
+
+.login button:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.logout{
+    float:right;
+}
+.logout button{
+    float:right;
+    width:65px;
+    height:30px;
+    display: inline-block;
+    padding: 3px 8px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #337ab7;;
+    border-color: #337ab7;;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    }
+
+.logout button:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.registration {
+    float: left;
+    width: 100%;
+}

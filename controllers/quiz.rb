@@ -28,6 +28,6 @@ namespace '/quiz' do
       )
     end
 
-    erb :finish, locals: { params: params }
+    erb :finish
   end
 end
