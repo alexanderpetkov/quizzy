@@ -9,9 +9,14 @@ label {
 
 h1 {
     float: left;
+    width:100%;
 }
 
-form {
+.take-quiz {
+    margin-top: 20px;
+}
+
+.stats-form {
     width: 300px;
 }
 

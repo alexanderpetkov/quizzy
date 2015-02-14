@@ -2,9 +2,9 @@
 <script src="../js/chartkick.js"></script>
 
 <% if !categories.blank? %>
-  <form action='/stats/my' method='POST'>
+  <form action='/stats/my' method='POST' class='stats-form'>
     <% for category in categories %>
-      <label>
+      <label class='category'>
         <% if is_checked == category %>
           <input type="radio" name='wanted_category' value=<%= category %> checked='checked' onchange='this.form.submit()'>
         <% else %>
